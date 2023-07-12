@@ -29,12 +29,13 @@ public class TwoSumGenerator {
         return false;
     }
 
-    public int obtainvalueToFind() {
-        int valueFirstRandomIndex = random.nextInt(arr.length), valueSecondRandomIndex;
-        while((valueSecondRandomIndex = random.nextInt(arr.length)) == valueFirstRandomIndex) {
+    public int obtainValueToFind() {
+        int valueFirstRandomIndex = random.nextInt(arr.length);
+        int valueSecondRandomIndex = random.nextInt(arr.length);
+        while(valueSecondRandomIndex == valueFirstRandomIndex) {
             valueSecondRandomIndex = random.nextInt(arr.length);
         }
-        return valueFirstRandomIndex + valueSecondRandomIndex;
+        return (arr[valueFirstRandomIndex] + arr[valueSecondRandomIndex]);
     }
 
     public String representationOfArray() {
@@ -58,6 +59,7 @@ public class TwoSumGenerator {
     public TwoSumGenerator() {
         this.random = new Random();
         this.arr = new int[this.random.nextInt(5)+5];
-        this.valueToFind = obtainvalueToFind();
+        fillArray();
+        this.valueToFind = obtainValueToFind();
     }
 }
